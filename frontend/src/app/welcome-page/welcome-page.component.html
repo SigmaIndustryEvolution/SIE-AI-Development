@@ -1,1 +1,38 @@
-<p>welcome-page works!</p>
+<FlexboxLayout flexDirection="column"
+               justifyContent="space-between"
+               alignItems="center">
+
+       <ns-action-bar title="PartFinder"
+                      [showBackButton]="false"
+                      [hasHome]="false"></ns-action-bar>
+
+       <Label class="h1"
+              text="Welcome to PartFinder"></Label>
+
+       <Label class="h2"
+              text="Press start to take pictures"></Label>
+
+       <StackLayout class="img"
+                    height="50%"
+                    width="69%"
+                    verticalAlignment="center"
+                    horizontalAlignment="center"
+                    borderRadius="10%">
+
+              <Image src="res://logo"
+                     width="70%"
+                     height="98%"
+                     borderRadius="5%"></Image>
+
+       </StackLayout>
+
+       <Label text=""
+              class="h2"></Label>
+
+       <Button text="Start"
+               class="btn"
+               (tap)="nextPage()"></Button>
+
+       <ns-bottom-bar></ns-bottom-bar>
+
+</FlexboxLayout>

@@ -8,9 +8,7 @@ dist
 *.log
 *.h5
 /backend/target
-/frontend/node_modules
 .DS_Store
-/frontend/platforms
 /predict/__pycache__
 
 
@@ -18,7 +16,7 @@ dist
 # NativeScript
 frontend/hooks/
 frontend/node_modules/
-front/endplatforms/
+frontend/platforms/
 
 # Logs
 frontend/logs
