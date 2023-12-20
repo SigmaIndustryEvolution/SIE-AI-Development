@@ -1,0 +1,14 @@
+*.apk
+.DS_Store
+lib
+hooks
+dist
+*.js
+*.map
+*.log
+*.h5
+/backend/target
+/frontend/node_modules
+.DS_Store
+/frontend/platforms
+/predict/__pycache__
