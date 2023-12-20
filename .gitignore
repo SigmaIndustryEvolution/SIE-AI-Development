@@ -12,3 +12,34 @@ dist
 .DS_Store
 /frontend/platforms
 /predict/__pycache__
+
+
+
+# NativeScript
+frontend/hooks/
+frontend/node_modules/
+front/endplatforms/
+
+# Logs
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# General
+frontend/.DS_Store
+frontend/.AppleDouble
+frontend/.LSOverride
+frontend/.idea
+frontend/.cloud
+frontend/.project
+frontend/tmp/
+frontend/typings/
+
+# Visual Studio Code
+frontend/.vscode/*
+frontend/!.vscode/settings.json
+frontend/!.vscode/tasks.json
+frontend/!.vscode/launch.json
+frontend/!.vscode/extensions.json
