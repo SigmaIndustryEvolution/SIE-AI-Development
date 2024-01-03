@@ -1,0 +1,30 @@
+<GridLayout columns="*,auto,*"
+            height="45"
+            android:position="bottom"
+            class="bottom-bar">
+ 
+    <StackLayout col="1">
+        <Label text="Powered by SIE-AI"
+               ios.position="center"
+               class="h3"
+               marginTop="5"
+               android:fontSize="20"
+               android:color="white"
+               horizontalAlignment="center"></Label>
+    </StackLayout>
+ 
+    <StackLayout col="2">
+        <Label text="&#xf059;"
+               font-weight="bold"
+               ios.position="right"
+               ios:class="fa p-5"
+               android:class="fa p-10"
+               android:fontSize="20"
+               android:color="white"
+               horizontalAlignment="right"
+               marginRight="15"
+               (tap)="showInfo()"></Label>
+    </StackLayout>
+ 
+</GridLayout>
+

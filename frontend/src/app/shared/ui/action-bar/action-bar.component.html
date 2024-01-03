@@ -1,0 +1,53 @@
+<ActionBar (loaded)="onLoadedActionBar()"
+           height="45"
+           backgroundColor="black">
+
+       <GridLayout columns="*,auto,*"
+                   orientation="horizontal"
+                   ios:padding="0 10"
+                   height="100%"
+                   width="100%">
+
+              <Label text="&#xf060;"
+                     ios.position="right"
+                     android.position="actionBar"
+                     (tap)="onGoBack()"
+                     *ngIf="canGoBack"
+                     horizontalAlignment="left"
+                     verticalAlignment="center"
+                     col="0"
+                     ios:class="fa p-5"
+                     android:class="fa p-5"
+                     android:fontSize="32"
+                     android:color="white"></Label>
+
+              <Label [text]="title"
+                     horizontalAlignment="center"
+                     verticalAlignment="center"
+                     col="1"
+                     fontSize="32"
+                     fontWeight="bold"
+                     color="white"
+                     padding="0"></Label>
+
+
+              <Label text="&#xf015;"
+                     ios.position="right"
+                     android.position="actionBar"
+                     (tap)="onGoHome()"
+                     *ngIf="hasHome"
+                     verticalAlignment="center"
+                     col="2"
+                     ios:class="fa p-5"
+                     android:class="fa p-5"
+                     android:fontSize="32"
+                     android:color="white"
+                     horizontalAlignment="right"
+                     marginRight="15"></Label>
+
+       </GridLayout>
+
+
+       <ng-content></ng-content>
+
+</ActionBar>

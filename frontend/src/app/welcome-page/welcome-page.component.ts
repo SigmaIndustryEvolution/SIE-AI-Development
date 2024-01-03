@@ -10,9 +10,8 @@ export class WelcomePageComponent {
 
   constructor(private router: RouterExtensions) {}
 
-  //Fix
   nextPage() {
-    this.router.navigate(["/front"]);
+    this.router.navigate(["/image-capture"]);
   }
   
 }

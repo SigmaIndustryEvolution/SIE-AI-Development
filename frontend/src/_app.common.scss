@@ -1,6 +1,6 @@
 @import './theme/colors';
+@import "~@nativescript/theme/index";
 @import "~@nativescript/theme/core";
-@import "~@nativescript/theme/default";
 
 
 
@@ -9,6 +9,10 @@ $btn-color: $primary;
 ActionBar {
   background: $primary;
   color: white;
+}
+
+.bottom-bar{
+  background-color: $primary;
 }
 
 .img {
@@ -59,39 +63,24 @@ ActionBar {
 
 .h1 {
   font-weight: bold;
-  color: $secondary;
+  color: white;
   font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
 }
 
 .h2 {
-  color: $secondary;
+  color: white;
   font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
 }
 
 .h3 {
   font-weight: bold;
-  color: $secondary;
+  color: $white;
   font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
 }
 
 .fa {
   font-family: 'FontAwesome', 'Font-Awesome';
 }
-
-.drawer-container {
-  background: linear-gradient(140deg, $primary, #a0763f);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20;
-
-  .btn {
-    width: 80%;
-    font-size: 24;
-    height: 45;
-  }
-}
-
 
 .btn-flat {
   background: transparent;
