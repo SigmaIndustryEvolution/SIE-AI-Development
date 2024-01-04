@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { RouterExtensions } from '@nativescript/angular';
 import { Page } from '@nativescript/core';
 import { isAndroid } from "@nativescript/core";
+import { ImageService } from "~/app/view.service";
+
 
 declare var android: any;
 
@@ -16,6 +18,7 @@ export class ActionBarComponent {
   constructor(
     private page: Page,
     private router: RouterExtensions,
+    private imageService: ImageService
   ) {}
 
   @Input() title: string;
@@ -34,7 +37,7 @@ export class ActionBarComponent {
     if (isAndroid) {
       const androidToolbar = this.page.actionBar.nativeView;
       const backButton = androidToolbar.getNavigationIcon();
-      let color = "#101010";
+      let color = "#171717";
       if (backButton) {
         backButton.setColorFilter(
           android.graphics.Color.parseColor(color),
@@ -46,6 +49,8 @@ export class ActionBarComponent {
 
   onGoHome() {
     this.router.navigate(["/"], { clearHistory: true });
+    this.imageService.clearImages();
+
   }
 
 }

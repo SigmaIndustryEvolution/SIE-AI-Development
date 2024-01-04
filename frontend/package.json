@@ -12,6 +12,7 @@
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
+    "@klippa/nativescript-http": "^3.0.0",
     "@nativescript/angular": "^16.0.0",
     "@nativescript/core": "~8.6.0",
     "@nativescript/theme": "~3.0.2",
