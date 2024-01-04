@@ -14,8 +14,10 @@
     "@angular/router": "~16.2.0",
     "@klippa/nativescript-http": "^3.0.0",
     "@nativescript/angular": "^16.0.0",
+    "@nativescript/camera": "^5.1.0",
     "@nativescript/core": "~8.6.0",
     "@nativescript/theme": "~3.0.2",
+    "nativescript-camera": "^4.5.0",
     "nativescript-theme-core": "1.0.6",
     "rxjs": "~7.8.0",
     "zone.js": "~0.13.0"
