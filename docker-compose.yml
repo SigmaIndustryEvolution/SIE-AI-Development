@@ -1,0 +1,32 @@
+services: 
+  safari-backend:
+    restart: always
+    build: ./backend/
+    hostname: backend
+    networks:
+      - frontend
+      - backend
+
+  safari-predict:
+    restart: always
+    build: ./predict/
+    hostname: predict
+    networks:
+      - backend 
+
+  safari-loadbalance:
+    restart: always
+    build: ./loadbalance/
+    hostname: loadbalance
+    environment:
+      - CONFIG:${CONFIG}
+    networks:
+      - frontend
+    ports:
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+
+networks:
+  frontend:
+  backend:

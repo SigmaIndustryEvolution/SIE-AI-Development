@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../moosebox/raise-filter-aecontrast/raise-filter-aecontrast.iml" filepath="$PROJECT_DIR$/../../moosebox/raise-filter-aecontrast/raise-filter-aecontrast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../moosebox/raise-filter-core/raise-filter-core.iml" filepath="$PROJECT_DIR$/../../moosebox/raise-filter-core/raise-filter-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../moosebox/raise-filter-services/raise-filter-services.iml" filepath="$PROJECT_DIR$/../../moosebox/raise-filter-services/raise-filter-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/safari.iml" filepath="$PROJECT_DIR$/safari.iml" />
+    </modules>
+  </component>
+</project>

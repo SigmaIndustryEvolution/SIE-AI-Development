@@ -1,0 +1,9 @@
+[
+  {
+    "type": "FeatureDetection",
+    "parameters": {
+      "file": "haar-cascade/classifier/cascade.xml",
+      "algorithm": "OpenCV_Haar"
+    }
+  }
+]

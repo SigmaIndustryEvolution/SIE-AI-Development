@@ -10,7 +10,15 @@ export class ImageService {
   constructor(private router: Router, private sessionService: SessionService) {
   }
 
-  imageSet: { front: string, back: string, side: string } = {front: undefined, back: undefined, side: undefined};
+  imageSet: { view1: string 
+    // view2: string, 
+    // view3: string 
+   } 
+    = {view1: undefined
+      // , view2: undefined
+      // , view3: undefined
+    };
+
   predictedDoors: DoorPrediction[];
   isLoading: boolean = false;
 
@@ -35,9 +43,10 @@ export class ImageService {
 
     const formParams = new HTTPFormData();
 
-    formParams.append("front", new HTTPFormDataEntry(new java.io.File(this.imageSet.front), this.imageSet.front, "image/jpg"));
-    formParams.append("back", new HTTPFormDataEntry(new java.io.File(this.imageSet.back), this.imageSet.back, "image/jpg"));
-    formParams.append("side", new HTTPFormDataEntry(new java.io.File(this.imageSet.side), this.imageSet.side, "image/jpg"));
+    formParams.append("view1", new HTTPFormDataEntry(new java.io.File(this.imageSet.view1), this.imageSet.view1, "image/jpg"));
+
+    // formParams.append("view2", new HTTPFormDataEntry(new java.io.File(this.imageSet.view2), this.imageSet.view2, "image/jpg"));
+    // formParams.append("view3", new HTTPFormDataEntry(new java.io.File(this.imageSet.view3), this.imageSet.view3, "image/jpg"));
 
     const httpOptions = {
       headers: {

@@ -13,6 +13,7 @@ import { NativeScriptHttpClientModule } from "@klippa/nativescript-http/angular"
 
 import { SessionService } from "~/app/shared/auth/session.service";
 import { ImageCaptureComponent } from "./image-capture/image-capture.component";
+import { PredictionComponent } from './prediction/prediction.component';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from '@nativescript/angular/forms';
 
@@ -34,7 +35,8 @@ export function sessionServiceInit(sessionService: SessionService) {
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    ImageCaptureComponent
+    ImageCaptureComponent,
+    PredictionComponent
    
   ],
   providers: [

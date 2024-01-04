@@ -1,0 +1,5 @@
+<Context>
+ <Resource name="jdbc/mbapplication" auth="Container" type="javax.sql.DataSource"
+    username="aiservices" password="ahs8Toovohx3" driverClassName="com.mysql.cj.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/aiservices" />
+</Context>

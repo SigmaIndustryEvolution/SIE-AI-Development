@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="safari:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>safari</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="safari-lab.war">
+      <element id="artifact" artifact-name="safari:war exploded" />
+    </root>
+  </artifact>
+</component>
