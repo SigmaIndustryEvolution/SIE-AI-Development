@@ -29,7 +29,7 @@ export class TakePictureButtonComponent {
             this.imageTaken = true;
             if(this.imageTaken && this.imageService.hasImages()){
               this.sendingPrediction.emit(true);
-              this.imageService.sendPrediction();
+              this.imageService.sendPredictionSingle();
               this.imageTaken = false;
             }
             else if (this.imageTaken) {

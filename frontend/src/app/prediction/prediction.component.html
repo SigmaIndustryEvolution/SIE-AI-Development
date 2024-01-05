@@ -1,1 +1,79 @@
-<p>prediction works!</p>
+<!-- CERTAIN! -->
+
+<FlexboxLayout flexDirection="column"
+               justifyContent="space-between"
+               alignItems="center"
+               *ngIf="isCertain"
+               backgroundColor="#545454">
+
+    <ns-action-bar title="SIE-AI"
+                   [showBackButton]="false"></ns-action-bar>
+
+    <Label class="h2"
+           text="Object identified as:"></Label>
+
+    <Label class="h1"
+           [text]="selectedClassUpper"></Label>
+
+    <StackLayout class="img"
+                 height="50%"
+                 width="69%"
+                 backgroundColor="white"
+                 verticalAlignment="center"
+                 horizontalAlignment="center"
+                 borderRadius="10%">
+
+        <Image src="res://sie"
+               width="100%"
+               height="100%"
+               borderRadius="5%"></Image>
+
+    </StackLayout>
+
+    <Button text="Scan again"
+            class="btn"
+            (tap)="viewNewPrediction()"></Button>
+
+    <ns-bottom-bar> </ns-bottom-bar>
+
+</FlexboxLayout>
+
+<!-- NOT CERTAIN! -->
+
+<FlexboxLayout flexDirection="column"
+               justifyContent="space-between"
+               alignItems="center"
+               *ngIf="!isCertain"
+               backgroundColor="#545454">
+
+    <ns-action-bar title="SIE-AI"
+                   [showBackButton]="false"></ns-action-bar>
+
+    <Label class="h1"
+           text="Uncertain"></Label>
+
+    <Label class="h2"
+           text="Please try and scan again"></Label>
+
+    <StackLayout class="img"
+                 height="50%"
+                 width="69%"
+                 backgroundColor="white"
+                 verticalAlignment="center"
+                 horizontalAlignment="center"
+                 borderRadius="10%">
+
+        <Image src="res://sie"
+               width="100%"
+               height="100%"
+               borderRadius="5%"></Image>
+
+    </StackLayout>
+
+    <Button text="Scan again"
+            class="btn"
+            (tap)="viewNewPrediction()"></Button>
+
+    <ns-bottom-bar> </ns-bottom-bar>
+
+</FlexboxLayout>

@@ -6,6 +6,9 @@ import sys
 
 model = load_model("model/multi-view.h5")
 
+def getClasses():
+    return None
+
 # load model
 def predictDoorBase64(image_dictionary):
 

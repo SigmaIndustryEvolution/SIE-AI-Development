@@ -16,33 +16,28 @@ export class PredictionComponent {
     this.isCertain = this.probabilityThreshhold;
   }
 
-  get selectedDoor() {
-    return this.imageService.predictedDoors[0].door;
+  get selectedClass() {
+    return this.imageService.prediction[0].class;
   };
 
-  get selectedDoorUpper(){
-    return this.imageService.predictedDoors[0].door.toUpperCase();
+  get selectedClassUpper(){
+    return this.imageService.prediction[0].class.toUpperCase();
   }
 
   get probability() {
-    return Math.round(this.imageService.predictedDoors[0].prediction * 100.0);
+    return Math.round(this.imageService.prediction[0].certainty * 100.0);
   }
 
   get probabilityThreshhold(){
     console.log("Probability")
-    console.log(this.imageService.predictedDoors[0].prediction*100.0);
+    console.log(this.imageService.prediction[0].certainty*100.0);
     console.log("Boolean")
-    console.log(this.imageService.predictedDoors[0].prediction*100.0> this.threshHold);
-    return this.imageService.predictedDoors[0].prediction*100.0 > this.threshHold;
-  }
-
-  viewParts() {
-    console.log("Door '" + this.selectedDoor + "' was predicted with " + this.probability + "% probability");
-    this.router.navigate(["/" + this.selectedDoor ]);
+    console.log(this.imageService.prediction[0].certainty*100.0> this.threshHold);
+    return this.imageService.prediction[0].certainty*100.0 > this.threshHold;
   }
 
   viewNewPrediction() {
-    this.router.navigate(["front"], { clearHistory: true });
+    this.router.navigate(["image-capture"], { clearHistory: true });
     this.imageService.clearImages();
   }
 }

@@ -1,10 +1,11 @@
 <FlexboxLayout flexDirection="column"
                justifyContent="space-between"
                alignItems="center"
+               *ngIf="!isLoading"
                backgroundColor="#545454">
 
        <ns-action-bar title="SIE-AI"
-                      [showBackButton]="true"
+                      [showBackButton]="!isLoading"
                       [hasHome]="true"></ns-action-bar>
 
        <Label class="h1"
@@ -31,9 +32,25 @@
        <Label class="h2"
               text=""></Label>
 
+
        <ns-take-picture-button part="view1"
-                               forwardPath="/prediction"></ns-take-picture-button>
+                               forwardPath="/prediction"
+                               (sendingPrediction)="onSendingPrediction($event)"></ns-take-picture-button>
 
        <ns-bottom-bar></ns-bottom-bar>
+
+</FlexboxLayout>
+
+
+<FlexboxLayout flexDirection="column"
+               justifyContent="center"
+               alignItems="center"
+               *ngIf="isLoading">
+
+       <Label class="h1"
+              text="Identifying"></Label>
+
+       <ActivityIndicator [busy]="isLoading"
+                          color="#f18900"></ActivityIndicator>
 
 </FlexboxLayout>
