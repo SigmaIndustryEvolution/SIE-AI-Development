@@ -1,0 +1,9 @@
+###### Requirements without Version Specifiers ######
+Pillow
+regex
+pandas
+numpy
+scikit-learn
+tensorflow
+keras
+###### Requirements with Version Specifiers ######
