@@ -14,7 +14,7 @@ def getClasses():
 def getFixedClassList():
     return ['alpha-microrib', 'condoor-st3v', 'crawford-542', 'hormann-spu40', 'novoferm-t45']
 
-# Still here since if one wants to send images in base64 format
+# NOT USED
 # Input: Part of the door( Front, Back, Side ), Door in base64 format
 # Returns: 
 def strToImage(partString, image_string):
