@@ -1,12 +1,7 @@
 import os
 import re
 import shutil
-
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
+from ...tools import SetClassesAndParts
 
 def CopyFilesToNewFolders(source, destination, classes, parts):
     for dirpath, directories, files in os.walk(source):
@@ -42,7 +37,7 @@ if __name__ == '__main__':
 	# Calling main() function
     root = r'data'
     newDirectoryName = r'data-parts-classes'
-    classes, parts = SetClassesAndParts(root)
+    classes, parts = SetClassesAndParts()
     CreateEmptyDirectoriesPartsClasses(newDirectoryName, classes, parts)
     CopyFilesToNewFolders(root, newDirectoryName, classes, parts)
  

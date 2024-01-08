@@ -1,22 +1,14 @@
 import splitfolders
 import os
 import shutil
+from ...tools import SetClassesAndParts
 
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
-
-
-def SplitIntoTrainValTest(source, destination, classes, parts):
-
-    # Path(__file__).parents[3] 
-
+def SplitIntoTrainValTest(destination, classes, parts):
+    
     random_int = 403
     for part in parts:
         fullPathToSource = os.path.join("data-parts-classes", part) 
-        fullPathToDestination = os.path.join( "data-train-val-test-one-folder")
+        fullPathToDestination = os.path.join("data-train-val-test-one-folder")
         splitfolders.ratio(
                         fullPathToSource, # The location of dataset
                         output=fullPathToDestination, # The output location
@@ -45,11 +37,9 @@ def SplitIntoTrainValTest(source, destination, classes, parts):
 
 
 if __name__ == '__main__':
-    root = r'data'
-    rootPartsClasses = r'data-parts-classes'
     newDirectoryName = r'data-train-val-test-one-folder'
     if not os.path.exists(newDirectoryName):
         os.mkdir(newDirectoryName)
-    classes, parts = SetClassesAndParts(root)
-    SplitIntoTrainValTest(rootPartsClasses, newDirectoryName, classes, parts)
+    classes, parts = SetClassesAndParts()
+    SplitIntoTrainValTest(newDirectoryName, classes, parts)
     

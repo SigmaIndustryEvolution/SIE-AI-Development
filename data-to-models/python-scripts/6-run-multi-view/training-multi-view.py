@@ -7,6 +7,7 @@ from keras.optimizers import Adam
 from keras.callbacks import ReduceLROnPlateau, EarlyStopping
 import os
 import keras
+from ..tools import SetClassesAndParts
 
 # %% [markdown]
 # ## Setting up parameters
@@ -24,7 +25,6 @@ test_dir = r'data-train-val-test-one-folder/test'
 excelPathTrain = r'excel/multi-view/csv/multi-view-train.csv'
 excelPathVal = r'excel/multi-view/csv/multi-view-val.csv'
 excelPathTest = r'excel/multi-view/csv/multi-view-test.csv'
-root = r'data'
 epochs = 5
 modelSavePath = r'models/multi-view'
 
@@ -60,13 +60,7 @@ class MultiGenDF(tf.keras.utils.Sequence):
             np.random.shuffle(self.indices)
 
 # %%
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
-
-            
+         
 def build_datagenerator_df(df, input_size, batch_size, views, shuffle, dir, train_val = True, seed=0):
     
     if train_val:
@@ -124,7 +118,7 @@ def buildLateFusionFC(models):
 # ### Train, validation and test
 
 # %%
-classes, parts = SetClassesAndParts(root)
+classes, parts = SetClassesAndParts()
 
 train_data_multi = pd.read_csv(excelPathTrain)
 multi_gen_df_train = build_datagenerator_df(train_data_multi, (IMG_WIDTH,IMG_HEIGHT), BATCH_SIZE//3, views=parts, shuffle = True, dir=train_dir)

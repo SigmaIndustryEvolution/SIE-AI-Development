@@ -9,7 +9,7 @@ from keras.optimizers import Adam
 from keras.callbacks import ReduceLROnPlateau, EarlyStopping, ModelCheckpoint
 from keras import regularizers
 import keras
-import os
+from ..tools import SetClassesAndParts
 
 # %% [markdown]
 # # Single View
@@ -50,13 +50,6 @@ testGenerator = ImageDataGenerator(preprocessing_function = keras.applications.i
 
 # %%
 
-
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
-
 def create_model(baseModel, numberOfClasses):
     
     inputs = keras.Input(shape=(IMG_HEIGHT, IMG_WIDTH, 3))
@@ -76,7 +69,7 @@ def create_model(baseModel, numberOfClasses):
 # %%
 root = r'data'
 
-classes, parts = SetClassesAndParts(root)
+classes, parts = SetClassesAndParts()
 
 # %% [markdown]
 # ## Model

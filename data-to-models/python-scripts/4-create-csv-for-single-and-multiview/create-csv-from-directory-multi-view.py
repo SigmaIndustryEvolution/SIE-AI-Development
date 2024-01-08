@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import re
-import random
+from ..tools import SetClassesAndParts
 
 def findFiles(root_dir, partsAndFilesDictionary, parts):
     for dirpath, dirnames, filenames in os.walk(root_dir):
@@ -41,7 +41,7 @@ def returnClassName(filename, classes):
             match = re.search(className, filename) # finds what type of door it is
             if match:
                 return className
-        return "no class"
+        return "unidentified"
 
 def returnPartName(filename, parts):
     # empty dictionary to add a combination. This dict is then used to match against new_combinations
@@ -49,22 +49,12 @@ def returnPartName(filename, parts):
             match = re.search(part, filename) # finds what type of door it is
             if match:
                 return part
-        return "no part"
+        return "unidentified"
 
-def shuffleList(categories):
-    # empty dictionary to add a combination. This dict is then used to match against new_combinations
-        for part in categories:
-            random.Random(3).shuffle(parts[part]) # using random.Random to replicate result for all lists 
-
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
 
 if __name__ == "__main__":
     root = 'data'
-    classes, parts = SetClassesAndParts(root)
+    classes, parts = SetClassesAndParts()
     root_directory = r'data-train-val-test-one-folder'
     for set in ["train", "val", "test"]:
         data = []

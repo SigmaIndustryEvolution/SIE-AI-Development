@@ -1,14 +1,9 @@
 import os
 import shutil
 import re
+from ...tools import SetClassesAndParts
+
 # Function to rename multiple files
-
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
-
 
 def copy_all_files_to_folders(source_directory, destination_directory, part):
     for dirpath, directories, files in os.walk(source_directory):
@@ -24,7 +19,7 @@ def main():
     source_directory = r'data-train-val-test-one-folder'
     destination_directory = r'data-train-val-test'
     
-    classes, parts = SetClassesAndParts(root)
+    classes, parts = SetClassesAndParts()
     if not os.path.exists(destination_directory):
         os.mkdir(destination_directory)
     for set in ["train", "val", "test"]:

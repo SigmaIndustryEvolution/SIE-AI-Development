@@ -4,6 +4,7 @@ import shutil
 if __name__ == '__main__':
     inputDirectory = r'data-train-val-test-one-folder'
     outputDirectory = r'data-train-test-one-folder'
+    
     if not os.path.exists(outputDirectory):
         os.mkdir(outputDirectory)
         os.mkdir(os.path.join(outputDirectory, "train"))

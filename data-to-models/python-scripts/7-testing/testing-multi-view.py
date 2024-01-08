@@ -4,6 +4,7 @@ from PIL import Image
 import os
 import numpy as np
 import re
+from ..tools import SetClassesAndParts
 
 LINE_CLEAR = '\x1b[2K'
 LINE_UP = '\033[1A'
@@ -11,12 +12,7 @@ LINE_UP = '\033[1A'
 def rescale2Minus1And1(img):
     img = img.astype(np.float32) / 255.0
     img = (img - 0.5) * 2
-    return img
-  
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    parts = os.listdir(os.path.join(root, classes[0])) # gets a list of all parts from data
-    return classes, parts  
+    return img 
 
 def RescaleAndNormalizeImage(filePath):
     img = cv2.imread(filePath, cv2.IMREAD_COLOR)
@@ -30,7 +26,7 @@ if __name__ == '__main__':
 
     root = r'data'
     inputDir = r'test-data-views'
-    classes, parts = SetClassesAndParts(root)
+    classes, parts = SetClassesAndParts()
 
     classDict = {key: 0 for key in classes}
 

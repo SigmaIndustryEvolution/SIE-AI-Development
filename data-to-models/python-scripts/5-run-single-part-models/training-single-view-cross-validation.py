@@ -16,6 +16,7 @@ from keras.applications import InceptionV3
 from keras.optimizers import Adam
 from keras.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras import regularizers
+from ..tools import SetClassesAndParts
 
 # %% [markdown]
 # ## Setting up parameters
@@ -65,13 +66,6 @@ base_model = InceptionV3(weights = 'imagenet',
 
 # %% [markdown]
 # ### Get Parts And Classes
-
-# %%
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    pathToParts = os.path.join(root, classes[0])
-    parts = os.listdir(pathToParts) # gets a list of all parts from data
-    return classes, parts
 
 # %% [markdown]
 # ### Naming Models

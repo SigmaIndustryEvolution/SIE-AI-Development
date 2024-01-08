@@ -9,7 +9,7 @@ dist
 *.h5
 /backend/target
 .DS_Store
-/predict/__pycache__
+**/__pycache__/
 
 
 
@@ -45,3 +45,6 @@ frontend/!.vscode/extensions.json
 # Data-to-Models
 data-to-models/data
 data-to-models/test-data
+data-to-models/excel
+data-to-models/models
+data-to-models/data-train-val-test-one-folder

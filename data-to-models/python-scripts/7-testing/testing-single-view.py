@@ -4,6 +4,7 @@ from PIL import Image
 import os
 import numpy as np
 import re
+from ..tools import SetClassesAndParts
 
 LINE_CLEAR = '\x1b[2K'
 LINE_UP = '\033[1A'
@@ -13,10 +14,6 @@ def rescale2Minus1And1(img):
     img = (img - 0.5) * 2
     return img
 
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    parts = os.listdir(os.path.join(root, classes[0])) # gets a list of all parts from data
-    return classes, parts
 
 def RescaleAndNormalizeImage(img):
     img = rescale2Minus1And1(img)
@@ -25,23 +22,22 @@ def RescaleAndNormalizeImage(img):
 
 if __name__ == '__main__':
     
-    root = r'data'
-    classes, parts = SetClassesAndParts(root)
+    classes, parts = SetClassesAndParts()
 
     models = []
     for part in parts: 
-        models.append(load_model(os.path.join("models/single-view", part, part + "_model_1.h5")))
+        models.append(load_model(os.path.join("models/single-view", part, f"model_{part}.h5")))
     classDict = {key: 0 for key in classes}
 
     inputDir = r'test-data-views' # path to where directory is
 
+    i = 0
     for part in parts:
-        i = 0
-        right_answer = 0
-        total = 0
         currentModel = models[i]
+        total = 0
+        right_answers = 0
         for dirpath, dirnames, files in os.walk(os.path.join(inputDir, part)):
-            count = 1
+            print(len(files))
             for file in files:
                 file_path = os.path.join(dirpath, file)
                 img = cv2.imread(file_path,cv2.IMREAD_COLOR)
@@ -54,17 +50,16 @@ if __name__ == '__main__':
                     if match:
                         if className == classes[index]:
                             classDict[className] += 1
-                            right_answer += 1
+                            right_answers += 1
                             break
                         else:
                             break
                 print(LINE_UP, end = LINE_CLEAR)
                 total += 1
-                print(f"Current accuracy: {round(100*right_answer/total, 2)}%")
-                count += 1
+                print(f"Current accuracy: {round(100*right_answers/total, 2)}%")
                 
-        print(f"The {part}-model has an accuracy of : { round(100 * right_answer / total, 2) }% for this set of images. Number of images in the testset was {count - 1}.")
-        numberOfImagesPerClass = total//len(classes)
+        print(f"The {part}-model has an accuracy of : {round(100*right_answers/total, 2)}% for this set of images. Number of images in the testset was {total}.")
         for key, value in classDict.items():
-            print(f"Accuracy for {key}: { round(100*value / numberOfImagesPerClass, 2) }%")
+            print(f"Accuracy for {key}: { round(100*value / (len(files)/len(classes)), 2) }%")
+            classDict[key] = 0
         i += 1 

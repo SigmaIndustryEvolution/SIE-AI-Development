@@ -1,17 +1,13 @@
 import os
 import shutil
 import re
+from ..tools import SetClassesAndParts
 
-def SetClassesAndParts(root):
-    classes = os.listdir(root) # gets a list of all classes from data
-    parts = os.listdir(os.path.join(root, classes[0])) # gets a list of all parts from data
-    return classes, parts
 
-root = r'data'
 inputDirectory = r'test-data'
 outputDirectory = r'test-data-views'
 
-classes, parts =  SetClassesAndParts(root)
+classes, parts =  SetClassesAndParts()
 
 for part in parts:      
     # Check if the directory already exists, and create one if it doesn't
