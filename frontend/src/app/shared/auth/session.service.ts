@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { firstValueFrom } from "rxjs";
 
-export const BASE_URL = "https://safari-app1.digistrada.com/api/";
+export const BASE_URL = "http://10.66.248.22:8001/api/";
 export const USERNAME = "joakimahlen";
 export const PASSWORD = "zxc123!";
 
